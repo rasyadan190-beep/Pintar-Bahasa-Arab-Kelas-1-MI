@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Pengaturan Dasar & Wadah Google Sites */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f4f9f9;
+        }
+
+        .google-sites-wrapper {
+            font-family: 'Nunito', sans-serif;
+            /* Menggunakan gambar latar belakang pilihan Anda */
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt7gctdNFGMAuECtSiM4rqhAYG4O7bxGkwmw&s');
+            background-size: cover; 
+            background-position: center;
+            background-attachment: scroll;
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+            padding-bottom: 30px;
+        }
+
+        /* Animasi Melayang */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Header Ceria */
+        .header {
+            background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
+            padding: 40px 15px;
+            border-bottom: 8px solid #FF758C;
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 10px 20px rgba(255, 117, 140, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 3.2em;
+            color: #fff;
+            margin: 0 0 15px 0;
+            text-shadow: 4px 4px 0px #FF758C, 0 8px 15px rgba(0,0,0,0.2);
+            animation: float 3s ease-in-out infinite;
+            line-height: 1.2;
+        }
+
+        .motivasi {
+            background-color: #fff;
+            color: #FF758C;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: 700;
+            max-width: 700px;
+            margin: 0 auto;
+            border: 4px solid #FF758C;
+            box-shadow: 0 6px 0 #FF758C;
+        }
+
+        /* Panel Tujuan Pembelajaran (Gaya Buku Catatan) */
+        .info-panel {
+            background-color: #FFF9C4;
+            margin: 0 auto 40px auto;
+            padding: 25px;
+            width: 85%;
+            max-width: 800px;
+            border-radius: 20px;
+            border: 4px dashed #FBC02D;
+            text-align: left;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-panel h3 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.8em;
+            color: #F57F17;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-panel ul {
+            padding-left: 25px;
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #6d4c41;
+            line-height: 1.6;
+        }
+
+        /* Wadah Tema (Gaya Papan Permainan) */
+        .tema-container {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 60px auto;
+            padding: 40px 20px 25px 20px;
+            width: 90%;
+            max-width: 850px;
+            border-radius: 30px;
+            position: relative;
+        }
+
+        .tema-1 { 
+            border: 6px solid #4FC3F7; 
+            box-shadow: 0 15px 0 #29B6F6, 0 25px 30px rgba(0,0,0,0.15); 
+        } 
+        .tema-2 { 
+            border: 6px solid #81C784; 
+            box-shadow: 0 15px 0 #66BB6A, 0 25px 30px rgba(0,0,0,0.15); 
+        }
+
+        /* Pita Judul Tema */
+        .tema-title {
+            font-family: 'Baloo 2', cursive;
+            font-size: 2.2em;
+            color: #fff;
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 40px;
+            border-radius: 50px;
+            white-space: nowrap;
+            letter-spacing: 1px;
+        }
+
+        .tema-1 .tema-title { background-color: #29B6F6; border: 4px solid #fff; box-shadow: 0 8px 0 #0288D1; }
+        .tema-2 .tema-title { background-color: #66BB6A; border: 4px solid #fff; box-shadow: 0 8px 0 #388E3C; }
+
+        /* Segmen Konten */
+        .segmen {
+            background-color: #f8fcfc;
+            margin: 30px 0;
+            padding: 25px;
+            border-radius: 25px;
+            border: 3px solid #eee;
+        }
+
+        .segmen h2 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.8em;
+            color: #FF5252;
+            margin-top: 0;
+            background: #FFEBEE;
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 20px;
+            border-bottom: 4px solid #FF8A80;
+        }
+
+        /* Kartu Membaca (Efek Tombol 3D Mainan) */
+        .kartu-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .kartu-kata {
+            background: #fff;
+            border: 4px solid #FFCA28;
+            border-bottom: 10px solid #FFB300; 
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            flex: 1 1 calc(25% - 30px);
+            min-width: 110px;
+            max-width: 140px;
+            transition: all 0.15s ease-in-out;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Efek amblas saat kartu ditekan/sentuh */
+        .kartu-kata:hover {
+            transform: translateY(6px);
+            border-bottom: 4px solid #FFB300; 
+            background-color: #FFF8E1;
+        }
+
+        .kartu-kata .arab {
+            font-family: 'Baloo 2', cursive;
+            font-size: 3.5em;
+            font-weight: 800;
+            color: #37474F;
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        .kartu-kata .arti {
+            font-size: 1.1em;
+            color: #fff;
+            background: #FF5252;
+            font-weight: 800;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 3px 0 #D32F2F;
+        }
+
+        /* Iframe Video dan Game (Gaya Bingkai Tablet) */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            border-radius: 25px;
+            overflow: hidden;
+            border: 8px solid #455A64;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2), inset 0 0 10px rgba(0,0,0,0.5);
+            background: #000;
+        }
+
+        .video-wrapper { padding-top: 56.25%; }
+        .game-wrapper { padding-top: 75%; }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            padding: 30px 20px;
+            background: #2C3E50;
+            color: #ECF0F1;
+            font-size: 1.1em;
+            border-top: 8px solid #34495E;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .footer .arab-text { 
+            font-family: 'Baloo 2', cursive;
+            font-size: 1.8em; 
+            color: #FFCA28; 
+            margin-bottom: 5px;
+        }
+        
+        .creator-text {
+            font-size: 0.9em;
+            color: #95A5A6;
+            margin-top: 15px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2.2em; }
+            .tema-title { font-size: 1.6em; padding: 8px 30px; }
+            .kartu-kata { flex: 1 1 calc(45% - 20px); }
+            .kartu-kata .arab { font-size: 3em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="google-sites-wrapper">
+
+    <header class="header">
+        <h1>Ahlan wa Sahlan! </h1>
+        <div class="motivasi">
+            Tahukah kamu? Bahasa Arab adalah anugerah indah dari Allah SWT. Mari belajar dengan riang gembira! 
+        </div>
+    </header>
+
+    <section class="info-panel">
+        <h3>Tujuan Belajar Kita:</h3>
+        <ul>
+            <li>Menyadari bahwa Bahasa Arab adalah karunia Allah yang menyenangkan.</li>
+            <li>Mengenali bentuk huruf dan makna kata tentang <strong>Hobiku</strong> dan <strong>Keluargaku</strong>.</li>
+            <li>Hebat menyusun huruf dan mencocokkan gambar bahasa Arab dengan tepat!</li>
+        </ul>
+    </section>
+
+    <main class="tema-container tema-1">
+        <div class="tema-title">هِوَايَتِي (Hobiku)</div>
+        
+        <div class="segmen">
+            <h2>1. Ayo Membaca!</h2>
+            <p>Sentuh kartunya untuk berlatih mengeja kata sebelum bernyanyi!</p>
+            <div class="kartu-container">
+                <div class="kartu-kata"><div class="arab">رَسْم</div><div class="arti">Melukis</div></div>
+                <div class="kartu-kata"><div class="arab">طَبْخ</div><div class="arti">Memasak</div></div>
+                <div class="kartu-kata"><div class="arab">صَيْd</div><div class="arti">Memancing</div></div>
+                <div class="kartu-kata"><div class="arab">لَعِب</div><div class="arti">Bermain</div></div>
+                <div class="kartu-kata"><div class="arab">جَرْي</div><div class="arti">Berlari</div></div>
+                <div class="kartu-kata"><div class="arab">كُرَة</div><div class="arti">Bola</div></div>
+                <div class="kartu-kata"><div class="arab">قَدَم</div><div class="arti">Kaki</div></div>
+                <div class="kartu-kata"><div class="arab">سَمَك</div><div class="arti">Ikan</div></div>
+            </div>
+        </div>
+
+        <div class="segmen">
+            <h2> 2. Ayo Bernyanyi!</h2>
+            <p>Dengarkan lagu seru di bawah ini ya!</p>
+            <div class="iframe-container video-wrapper">
+                <iframe src="https://www.youtube.com/embed/4MYy-3AytPw" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="segmen">
+            <h2>3. Waktunya Bermain!</h2>
+            <p>Pilih kotak yang tepat. Kamu pasti bisa!</p>
+            <div class="iframe-container game-wrapper">
+                <iframe src="https://wordwall.net/id/embed/40cb23d0ea3e4150b231e60837009596?themeId=65&templateId=30&fontStackId=0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </main>
+
+    <section class="tema-container tema-2">
+        <div class="tema-title">أُسْرَتِي (Keluargaku)</div>
+        
+        <div class="segmen">
+            <h2>1. Ayo Membaca!</h2>
+            <p>Kata tentang keluarga ini sangat pendek dan mudah dibaca lho!</p>
+            <div class="kartu-container">
+                <div class="kartu-kata"><div class="arab">أَب</div><div class="arti">Ayah</div></div>
+                <div class="kartu-kata"><div class="arab">أُم</div><div class="arti">Ibu</div></div>
+                <div class="kartu-kata"><div class="arab">أَخ</div><div class="arti">Saudara</div></div>
+                <div class="kartu-kata"><div class="arab">جَد</div><div class="arti">Kakek</div></div>
+                <div class="kartu-kata"><div class="arab">عَم</div><div class="arti">Paman</div></div>
+                <div class="kartu-kata"><div class="arab">خَال</div><div class="arti">Paman (Ibu)</div></div>
+            </div>
+        </div>
+
+        <div class="segmen">
+            <h2>2. Lagu Keluargaku</h2>
+            <p>Yuk nyanyi bersama untuk memanggil keluarga kita!</p>
+            <div class="iframe-container video-wrapper">
+                <iframe src="https://www.youtube.com/embed/qTpCQwjkPNc" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="segmen">
+            <h2>3. Teka-Teki Huruf</h2>
+            <p>Geser hurufnya dari Kanan ke Kiri ya!</p>
+            <div class="iframe-container game-wrapper">
+                <iframe src="https://wordwall.net/id/embed/b7df9d128bd54a169297f18c89ecd0b6?themeId=1&templateId=38&fontStackId=0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="arab-text">بارك الله فيكم جميعًا</div>
+        <p>Alhamdulillah, kamu hebat sekali hari ini!</p>
+        <div class="creator-text">&copy; 2026 Media Edukasi Bahasa Arab MI Kelas 1<br>Dirancang oleh: Muhammad Rasyadan Faiqal</div>
+    </footer>
+
+</div>
+
+</body>
+</html>
